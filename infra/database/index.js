@@ -17,5 +17,6 @@ async function initModels() {
 }
 
 module.exports = {
-  initModels
+  initModels,
+  Robot
 }

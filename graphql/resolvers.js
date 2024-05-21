@@ -1,6 +1,8 @@
+const { listRobotsResolver } = require("../resolvers/listRobots/listRobots.resolver");
+
 const resolvers = {
   Query: {
-    hello: () => 'Olá, mundo!',
+    listRobots: listRobotsResolver(),
   },
 };
 
