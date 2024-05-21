@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
+const { DataTypes, Model } = require('sequelize');
 
 class Robot extends Model {
   init(sequelize) {
@@ -16,22 +16,23 @@ class Robot extends Model {
         name: {
           type: DataTypes.STRING,
           allowNull: false,
+          unique: true
         },
         type: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        createdAt: {
+        created_at: {
           type: DataTypes.DATE,
           allowNull: true,
           defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
-        updatedAt: {
+        updated_at: {
           type: DataTypes.DATE,
           allowNull: true,
           defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
         },
-        deletedAt: {
+        deleted_at: {
           type: DataTypes.DATE,
           allowNull: true,
           defaultValue: null
@@ -40,6 +41,7 @@ class Robot extends Model {
       {
         sequelize, 
         modelName: 'Robot',
+        paranoid: true,
         underscored: true,
         timestamps: true
       },
